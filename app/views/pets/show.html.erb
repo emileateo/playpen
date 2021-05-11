@@ -1,1 +1,11 @@
 <h1>This is pets show page</h1>
+
+<%= @pet.name %>
+
+<h3>Interested in this pet?</h3>
+<%= simple_form_for [@pet, @interest] do |f| %>
+  <%= f.input :message %>
+  <%= f.datetime_field :when %>
+  <%= f.input :venue %>
+  <%= f.submit 'Make it a date!' %>
+<% end %>

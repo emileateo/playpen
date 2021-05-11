@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_022644) do
+ActiveRecord::Schema.define(version: 2021_05_11_025553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "interests", force: :cascade do |t|
+    t.bigint "pet_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "status"
+    t.string "message"
+    t.datetime "when"
+    t.string "venue"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_interests_on_pet_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
+  end
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
@@ -39,5 +52,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_022644) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "interests", "pets"
+  add_foreign_key "interests", "users"
   add_foreign_key "pets", "users"
 end
