@@ -4,6 +4,8 @@ class PetsController < ApplicationController
   end
 
   def show
+    @pet = Pet.find(params[:id])
+    @interest = Interest.new
   end
 
 end
