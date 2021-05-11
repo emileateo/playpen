@@ -10,13 +10,13 @@
     </ul>
 </div>
 
-<h4>Interested in this pet?</h4>
-  <div>
-  <%= simple_form_for [@pet, @interest] do |f| %>
-    <%= f.input :message %>
-    <%= f.datetime_field :when %>
-    <%= f.input :venue %>
-    <%= f.submit 'Make it a date!' %>
-  <% end %>
-  </div>
-</div>
+<h3>Interested in this pet?</h3>
+<%= simple_form_for [@pet, @interest] do |f| %>
+  <%= f.input :message %>
+  <%= f.datetime_field :when %>
+  <%= f.input :venue %>
+  <%= f.submit 'Make it a date!' %>
+<% end %>
+
+<%= link_to "Back to home", root_path %>
+
