@@ -10,26 +10,30 @@ require 'open-uri'
 require 'json'
 require 'faker'
 
-url = "https://dog.ceo/api/breeds/image/random"
-pets_serialized = URI.open(url).read
-pet_image = JSON.parse(pets_serialized)
+
 
 puts "Cleaning up database..."
-Pet.destroy_all
 User.destroy_all
 puts "Database cleaned"
 
-10.times do
-    Pet.create(
-      name: Faker::Creature::Dog.name,
-      description: Faker::Creature::Dog.breed,
-      photos: pet_image["message"],
-      temperament: Faker::Creature::Dog.meme_phrase,
-      breed: Faker::Creature::Dog.breed
-    )
+user = User.create!(
+      email: Faker::Internet.email,
+      password: "123456")
 
-    User.create(
-      email: Faker::Internet.email)
+10.times do
+  url = "https://dog.ceo/api/breeds/image/random"
+  pets_serialized = URI.open(url).read
+  pet_image = JSON.parse(pets_serialized)
+  file = URI.open(pet_image["message"])
+  pet_new = Pet.new(
+    name: Faker::Creature::Dog.name,
+    description: Faker::Creature::Dog.breed,
+    temperament: Faker::Creature::Dog.meme_phrase,
+    breed: Faker::Creature::Dog.breed,
+    user: user
+  )
+  pet_new.photo.attach(io: file, filename: pet_new.name, content_type: 'image/jpg')
+  pet_new.save!
 end
 
 

@@ -36,7 +36,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     <% @pets.each do |pet| %>
       <div class="co-12 colsm-6 col-md-4">
         <%= link_to pet_path(pet), class:'text-decoration-none' do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(pet.photo)">
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
             <%= pet.name %>
           </div>
         <% end %>
