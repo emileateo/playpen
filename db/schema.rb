@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_05_11_042317) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_042317) do
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-
+  end
 
   create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
