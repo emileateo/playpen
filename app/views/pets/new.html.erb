@@ -1,1 +1,14 @@
-<h1>this is a test</h1>
+<h1>Tell us about your dog!</h1>
+
+<div class="create_pet_card" >
+<%= simple_form_for [@pet ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :temperament %>
+  <%= f.input :breed %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Woof Woof!' %>
+<% end %>
+</div>
+
+<%= link_to "Back to home", root_path %>
