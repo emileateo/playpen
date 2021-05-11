@@ -26,7 +26,8 @@ class InterestsController < ApplicationController
   end
 
   def playdates
-    @playdates = Interest.where(user: current_user, status: true).all
+    @playdates = Interest.where(user: current_user, status: true)
+    @playdates.all
   end
 
   private
