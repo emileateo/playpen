@@ -8,7 +8,7 @@ class InterestsController < ApplicationController
     @interest = Interest.new(interest_params)
     @pet = Pet.find(params[:pet_id])
     @interest.pet = @pet
-    @interest.user = @pet.user
+    @interest.user = current_user
 
     @interest.status = false
 
