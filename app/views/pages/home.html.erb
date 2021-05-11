@@ -14,15 +14,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()"
   class="w3-bar-item w3-button">Close Menu</a>
-  <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  <a href="pets" onclick="w3_close()" class="w3-bar-item w3-button">Pets</a>
+  <a href="playdates" onclick="w3_close()" class="w3-bar-item w3-button">Playdates</a>
 </nav>
 
 <!-- Top menu -->
 <div class="w3-top">
   <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
     <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16">Mail</div>
+    <!-- <div class="w3-right w3-padding-16">Mail</div> -->
     <div class="w3-center w3-padding-16">Play Pen</div>
   </div>
 </div>
@@ -33,49 +34,49 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <div class="w3-quarter">
-      <img src="ChopperCute.jpeg" alt="Chopper" style="width:100%">
+      <img src="<%= asset_path "poodle.jpeg" %>" alt="Chopper" style="width:100%">
       <h3>Chopper</h3>
       <p>Cutie</p>
     </div>
     <div class="w3-quarter">
-      <img src="/w3images/steak.jpg" alt="Jamie" style="width:100%">
+      <img src="<%= asset_path "fakejamie2.jpeg" %>" alt="Jamie" style="width:100%">
       <h3>Jamie</h3>
       <p>Also cute</p>
     </div>
     <div class="w3-quarter">
-      <img src="/w3images/cherries.jpg" alt="Panda" style="width:100%">
+      <img src="<%= asset_path "jackrussell.jpg" %>" alt="Panda" style="width:100%">
       <h3>Panda</h3>
       <p>Chaotic girl.</p>
       <p>Will bite</p>
     </div>
     <div class="w3-quarter">
-      <img src="/w3images/wine.jpg" alt="Pasta and Wine" style="width:100%">
-      <h3>Dog</h3>
-      <p>Dog description</p>
+      <img src="<%= asset_path "sparky.jpg" %>" alt="Sparky" style="width:100%">
+      <h3>Sparky</h3>
+      <p>Good girl</p>
     </div>
   </div>
 
   <!-- Second Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center">
     <div class="w3-quarter">
-      <img src="/w3images/popsicle.jpg" alt="Popsicle" style="width:100%">
-      <h3>Dog</h3>
-      <p>Dog description</p>
+      <img src="<%= asset_path "pug.jpg" %>" alt="Puggo" style="width:100%">
+      <h3>Puggo</h3>
+      <p>Round boy</p>
     </div>
     <div class="w3-quarter">
-      <img src="/w3images/salmon.jpg" alt="Salmon" style="width:100%">
-      <h3>Dog</h3>
-      <p>Dog description</p>
+      <img src="<%= asset_path "brownboy.jpg" %>" alt="Scooby" style="width:100%">
+      <h3>Scooby</h3>
+      <p>Dooby doo</p>
     </div>
     <div class="w3-quarter">
-      <img src="/w3images/sandwich.jpg" alt="Sandwich" style="width:100%">
-      <h3>Dog</h3>
-      <p>Dog description</p>
+      <img src="<%= asset_path "happy.jpg" %>" alt="Derp" style="width:100%">
+      <h3>Derp</h3>
+      <p>Herp derp</p>
     </div>
     <div class="w3-quarter">
-      <img src="/w3images/croissant.jpg" alt="Croissant" style="width:100%">
-      <h3>Dog</h3>
-      <p>Dog description</p>
+      <img src="<%= asset_path "corgo.jpg" %>" alt="Corgo" style="width:100%">
+      <h3>Corgo</h3>
+      <p>Bread loaf</p>
     </div>
   </div>
 
@@ -96,7 +97,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <!-- About Section -->
   <div class="w3-container w3-padding-32 w3-center">
     <h3>About Playpen</h3><br>
-    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <img src="<%= asset_path "doggos.jpg" %>" alt="About" class="w3-image" style="display:block;margin:auto" width="800" height="533">
     <div class="w3-padding-32">
       <h4><b>Tinder for Doggos</b></h4>
       <h6><i>Doggos blabla</i></h6>
@@ -117,12 +118,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <h3>DOGGO POSTS</h3>
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
-          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
           <span class="w3-large">Lorem</span><br>
           <span>Sed mattis nunc</span>
         </li>
         <li class="w3-padding-16">
-          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <img src="https://www.w3schools.com/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
           <span class="w3-large">Ipsum</span><br>
           <span>Praes tinci sed</span>
         </li>
