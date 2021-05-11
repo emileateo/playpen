@@ -12,8 +12,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 
 <!-- Sidebar (hidden by default) -->
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()"
-  class="w3-bar-item w3-button">Close Menu</a>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
   <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Home", root_path  %></a>
   <% if user_signed_in? %>
     <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Interests", interests_path  %></div>
@@ -45,118 +44,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <%= link_to pet.name, pet_path(pet) %>
     </div>
 
-   <!--  <div class="card-trip">
-      <a href='pets/<%= pet.id %>'><img src="<%= cl_image_path(pet.photo.key) %>"></a>
-      <div class="card-trip-infos">
-    <div>
-      <h2><%= pet.name %></h2>
-      <p><%= pet.description %></p>
-    </div>
-  </div>
-</div> -->
-
-
-      <!-- <div class="co-12 colsm-6 col-md-4">
-        <%= link_to pet_path(pet), class:'text-decoration-none' do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
-            <%= pet.name %>
-          </div>
-        <% end %>
-      </div> -->
-    <% end %>
-  </div>
-<!-- <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-
-      <img src="<%= asset_path "doggo.jpg" %>" alt="Chopper" style="width:100%">
-
-      <img src="<%= asset_path "poodle.jpeg" %>" alt="Chopper" style="width:100%">
-
-      <h3>Chopper</h3>
-      <p>Cutie</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="<%= asset_path "fakejamie2.jpeg" %>" alt="Jamie" style="width:100%">
-      <h3>Jamie</h3>
-      <p>Also cute</p>
-    </div>
-    <div class="w3-quarter">
-
-
-      <img src="<%= asset_path "jackrussell.jpg" %>" alt="Panda" style="width:100%">
-
-      <h3>Panda</h3>
-      <p>Chaotic girl.</p>
-      <p>Will bite</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="<%= asset_path "sparky.jpg" %>" alt="Sparky" style="width:100%">
-      <h3>Sparky</h3>
-      <p>Good girl</p>
-    </div>
-  </div>
-
-  <!-- Second Photo Grid-->
-  <!-- <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <img src="<%= asset_path "pug.jpg" %>" alt="Puggo" style="width:100%">
-      <h3>Puggo</h3>
-      <p>Round boy</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="<%= asset_path "brownboy.jpg" %>" alt="Scooby" style="width:100%">
-      <h3>Scooby</h3>
-      <p>Dooby doo</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="<%= asset_path "happy.jpg" %>" alt="Derp" style="width:100%">
-      <h3>Derp</h3>
-      <p>Herp derp</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="<%= asset_path "corgo.jpg" %>" alt="Corgo" style="width:100%">
-      <h3>Corgo</h3>
-      <p>Bread loaf</p>
-    </div>
-  </div> -->
-  <!--  -->
-
-  <!-- Pagination -->
-  <!-- <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-    </div>
-  </div> -->
-
-  <!-- <hr id="about"> -->
-
-  <!-- About Section -->
- <!--  <div class="w3-container w3-padding-32 w3-center">
-    <h3>About Playpen</h3><br>
-    <img src="<%= asset_path "doggos.jpg" %>" alt="About" class="w3-image" style="display:block;margin:auto" width="800" height="533">
-    <div class="w3-padding-32">
-      <h4><b>Tinder for Doggos</b></h4>
-      <h6><i>Doggos blabla</i></h6>
-      <p>Bork bork bork</p>
-    </div>
-  </div>
-  <hr> -->
-
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
       <h3>About</h3>
       <p>Doggos</p>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </div>
 
     <div class="w3-third">
-      <h3>DOGGO POSTS</h3>
+      <h3>Blog posts</h3>
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
           <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
@@ -172,7 +68,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     </div>
 
     <div class="w3-third w3-serif">
-      <h3>POPULAR TAGS</h3>
+      <h3>Popular tags</h3>
       <p>
         <span class="w3-tag w3-black w3-margin-bottom">Doggo</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chopper</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Jamie</span>
         <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Breed</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span>
