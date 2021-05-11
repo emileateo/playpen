@@ -32,15 +32,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
   <!-- First Photo Grid-->
-  <div class="row">
+  <div class="w3-row-padding w3-padding-16 w3-center" id="pets">
     <% @pets.each do |pet| %>
-      <div class="co-12 colsm-6 col-md-4">
+
+    <div class="card-trip">
+      <a href='pets/<%= pet.id %>'><img src="<%= cl_image_path(pet.photo.key) %>"></a>
+      <div class="card-trip-infos">
+    <div>
+      <h2><%= pet.name %></h2>
+      <p><%= pet.description %></p>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="card-product">
+      <a href='pets/<%= pet.id %>'><img src="<%= cl_image_path(pet.photo.key) %>" style="width:50%"></a>
+        <div class="card-product-infos" >
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+        <%= link_to pet.name, pet_path(pet)  %>
+        </div>
+    </div> -->
+      <!-- <div class="co-12 colsm-6 col-md-4">
         <%= link_to pet_path(pet), class:'text-decoration-none' do %>
           <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
             <%= pet.name %>
           </div>
         <% end %>
-      </div>
+      </div> -->
     <% end %>
   </div>
 <!-- <div class="w3-row-padding w3-padding-16 w3-center" id="food">
@@ -75,7 +94,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   </div>
 
   <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
+  <!-- <div class="w3-row-padding w3-padding-16 w3-center">
     <div class="w3-quarter">
       <img src="<%= asset_path "pug.jpg" %>" alt="Puggo" style="width:100%">
       <h3>Puggo</h3>
@@ -96,7 +115,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <h3>Corgo</h3>
       <p>Bread loaf</p>
     </div>
-  </div> -->
+  </div> --> -->
   <!--  -->
 
   <!-- Pagination -->

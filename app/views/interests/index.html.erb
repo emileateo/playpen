@@ -2,23 +2,23 @@
 
 <h2>Hello, <%= current_user.email %>!</h2>
 
-<% if Interest.count == 1 %>
-  <h3>You have a new message:</h3>
-<% elsif Interest.count > 1 %>
-  <h3>You have new messages:</h3>
+<% if Interest.count > 0 %>
+  <h3>Your active requests:</h3>
 <% else %>
-  <h3>You have no new messages.</h3>
+  <h3>You currently have no active requests.</h3>
 <% end %>
 
 <ul>
   <% @interests.each do |interest| %>
   <li>"<%= interest.message %>"</li>
   <ul>
-    <li>Request received <strong><%= interest.created_at %></strong></li>
-    <li>From: <strong><%= interest.user.email %></strong></li>
+    <li>Request received at <strong><%= interest.created_at %></strong></li>
+    <li>From: <strong><%= interest.user.email %></strong> and their pet, <strong><%= interest.pet.name %></strong> </li>
     <li>Let's meet at <strong><%= interest.when %></strong></li>
     <li>The venue will be <strong><%= interest.venue %></strong></li>
 
   </ul>
   <% end %>
 </ul>
+
+<%= link_to "Back to home", root_path %>
