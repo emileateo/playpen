@@ -16,11 +16,11 @@ puts "Cleaning up database..."
 User.destroy_all
 puts "Database cleaned"
 
-user = User.create!(
-      email: Faker::Internet.email,
-      password: "123456")
 
 10.times do
+  user = User.create!(
+        email: Faker::Internet.email,
+        password: "123456")
   url = "https://dog.ceo/api/breeds/image/random"
   pets_serialized = URI.open(url).read
   pet_image = JSON.parse(pets_serialized)
@@ -34,6 +34,8 @@ user = User.create!(
   )
   pet_new.photo.attach(io: file, filename: pet_new.name, content_type: 'image/jpg')
   pet_new.save!
+
+puts "Users and Pets created"
 end
 
 
