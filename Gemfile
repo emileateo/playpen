@@ -66,5 +66,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'dotenv-rails', groups: [:development, :test]
+<<<<<<< HEAD
 gem 'cloudinary', '~> 1.16.0'
 
+=======
+gem 'cloudinary', '~> 1.16.0'
+>>>>>>> b96f1a71d36e6c0ac08013ea08106e8fea8ef15d
