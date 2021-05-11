@@ -25,6 +25,10 @@ class InterestsController < ApplicationController
     redirect_to interests_path
   end
 
+  def playdates
+    @playdates = Interest.where(user: current_user, status: true)
+  end
+
   private
 
   def interest_params
