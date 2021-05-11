@@ -21,5 +21,3 @@ pet_image = JSON.parse(pets_serialized)
       breed: Faker::Creature::Dog.breed
     )
 end
-
-
