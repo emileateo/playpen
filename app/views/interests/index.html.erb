@@ -12,7 +12,6 @@
   <% @current_user_interests.each do |interest| %>
   <li>"<%= interest.message %>"</li>
   <ul>
-    <li><%= interest.id %></li>
     <li>Request received at <strong><%= interest.created_at %></strong></li>
     <li>From: <strong><%= interest.user.email %></strong> and their pet, <strong><%= interest.pet.name %></strong> </li>
     <li>Let's meet at <strong><%= interest.when %></strong></li>
