@@ -1,0 +1,20 @@
+<h1>Your playdates</h1>
+
+<% if @playdates.count > 0 %>
+  <h3>Your upcoming playdates:</h3>
+
+  <ul>
+    <% @playdates.each do |playdate| %>
+    <li>Upcoming playdate:<strong><%= playdate.when %></strong></li>
+      <ul>
+        <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet.</li>
+        <li>Message: <%= playdate.message %></li>
+        <li>The venue will be <strong><%= playdate.venue %></strong></li>
+      </ul>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>You don't have any upcoming playdates.</h3>
+<% end %>
+
+<%= link_to "Back to home", root_path %>
