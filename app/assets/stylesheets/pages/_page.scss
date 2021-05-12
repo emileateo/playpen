@@ -49,7 +49,12 @@
 }
 
 .pet-images {
-  margin: 0;
+  display: flex;
+  padding-left: 16px;
+}
+
+.pet-images img {
+  border-radius: 5px;
 }
 
 .card-product-infos-selected ul {
