@@ -17,6 +17,9 @@
     <div class="w3-third">
       <h3>About</h3>
       <p>Playpen is a site for pets to meet other like-minded pets.</p>
+      <% if user_signed_in? %>
+      <p><em>Logged in as <%= current_user.email %></em></p>
+      <% end %>
     </div>
 
     <div class="w3-third">
