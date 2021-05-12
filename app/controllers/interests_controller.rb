@@ -50,10 +50,6 @@ class InterestsController < ApplicationController
         @your_confirmed << interest
       end
     end
-<<<<<<< HEAD
-
-=======
->>>>>>> b6d4bf102d078a74616bff08cc5095db711705a9
     @your_confirmed.sort_by! { |playdate| playdate.when }
   end
   private
