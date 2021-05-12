@@ -16,7 +16,7 @@
     <li>From: <strong><%= interest.user.email %></strong> and their pet, <strong><%= interest.pet.name %></strong> </li>
     <li>Let's meet at <strong><%= interest.when %></strong></li>
     <li>The venue will be <strong><%= interest.venue %></strong></li>
-    <li>
+    <li>...
       <% if interest.status %>
         This playdate is confirmed.
         <%= link_to 'Cancel playdate', approve_path(interest), method: :patch %>
