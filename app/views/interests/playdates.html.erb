@@ -11,23 +11,22 @@
               <%= cl_image_tag playdate.pet.photo.key, width: 400, height: 400, crop: :fill%>
             </div>
             <div class="card-product-infos">
-              <h2>Upcoming playdate: <strong><%= playdate.when %></strong></h2>
+              <h2><%= playdate.when.httpdate.slice!(0..-5) %></h2>
 
-            <!-- Created by YOU, other -->
-            <% if playdate.user == current_user %>
-                <ul>
-                  <li>Between your pet, <strong><%= current_user.pets.first.name %></strong>, and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</li>
-                  <li>Your message: <%= playdate.message %></li>
-                  <li>The venue will be <strong><%= playdate.venue %></strong></li>
-                </ul>
-            <% else %>
-            <!-- Created by other user, YOUR PET -->
-                <ul>
-                  <li>Between your pet, <strong><%= playdate.pet.name %></strong>, and <strong><%= playdate.user.pets.first.name %>/<%= playdate.user.email %></strong>'s pet(s).</li>
-                  <li>Their message: <%= playdate.message %></li>
-                  <li>The venue will be <strong><%= playdate.venue %></strong></li>
-                </ul>
-            <% end %>
+              <!-- Created by YOU -->
+              <% if playdate.user == current_user %>
+                <p>Between your pet, <strong><%= current_user.pets.first.name %></strong>, and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</p>
+                <p>Your message: <%= playdate.message %></p>
+                <p>The venue will be <strong><%= playdate.venue %></strong></p>
+
+              <% else %>
+              <!-- Created by other user, YOUR PET -->
+
+                <p>Between your pet, <strong><%= playdate.pet.name %></strong>, and <strong><%= playdate.user.pets.first.name %>/<%= playdate.user.email %></strong>'s pet(s).</p>
+                <p>Their message: <%= playdate.message %></p>
+                <p>The venue will be <strong><%= playdate.venue %></strong></p>
+
+              <% end %>
             </div>
           </div>
         <% end %>
