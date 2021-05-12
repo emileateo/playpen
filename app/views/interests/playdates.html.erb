@@ -1,39 +1,33 @@
-<html>
-<head>
-  <title>Playdates</title>
-  <meta charset="UTF-8">
-
-</head>
-<body>
-<div class="page">
-<h1>Your playdates</h1>
-<% if @your_confirmed.count > 0%>
-  <h3>Your upcoming playdates:</h3>
-  <ul>
-    <% @your_confirmed.each do |playdate| %>
-      <!-- Created by YOU, other -->
-      <% if playdate.user == current_user %>
-        <li>Upcoming playdate: <strong><%= playdate.when %></strong></li>
-          <ul>
-            <li>Between your pet(s) and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</li>
-            <li>Your message: <%= playdate.message %></li>
-            <li>The venue will be <strong><%= playdate.venue %></strong></li>
-          </ul>
-      <% else %>
-      <!-- Created by other user, YOUR PET -->
-        <li>Upcoming playdate: <strong><%= playdate.when %></strong></li>
-          <ul>
-            <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet(s).</li>
-            <li>Their message: <%= playdate.message %></li>
-            <li>The venue will be <strong><%= playdate.venue %></strong></li>
-          </ul>
-      <% end %>
+<div class="container">
+  <div class="container">
+    <h1>Your playdates</h1>
+    <% if @your_confirmed.count > 0%>
+      <h3>Your upcoming playdates:</h3>
+      <ul>
+        <% @your_confirmed.each do |playdate| %>
+          <!-- Created by YOU, other -->
+          <% if playdate.user == current_user %>
+            <li>Upcoming playdate: <strong><%= playdate.when %></strong></li>
+              <ul>
+                <li>Between your pet(s) and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</li>
+                <li>Your message: <%= playdate.message %></li>
+                <li>The venue will be <strong><%= playdate.venue %></strong></li>
+              </ul>
+          <% else %>
+          <!-- Created by other user, YOUR PET -->
+            <li>Upcoming playdate: <strong><%= playdate.when %></strong></li>
+              <ul>
+                <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet(s).</li>
+                <li>Their message: <%= playdate.message %></li>
+                <li>The venue will be <strong><%= playdate.venue %></strong></li>
+              </ul>
+          <% end %>
+        <% end %>
+      </ul>
+    <% else %>
+      <h3>You don't have any upcoming playdates.</h3>
     <% end %>
-  </ul>
-<% else %>
-  <h3>You don't have any upcoming playdates.</h3>
-<% end %>
-<%= link_to "Back to home", root_path %>
+  </div>
+
+  <%= link_to "Back to home", root_path %>
 </div>
-</body>
-</html>

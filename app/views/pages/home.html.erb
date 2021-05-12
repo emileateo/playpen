@@ -6,28 +6,25 @@
 </head>
 <body>
 
-<!-- Sidebar (hidden by default) -->
-
-<!-- Navbar -->
-
-
 <!-- !PAGE CONTENT! -->
 <div class="w3-container">
 
   <!-- First Photo Grid-->
-  <div class="cards" id="pets">
-    <% @pets.each do |pet| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
-        <%= link_to pet.name, pet_path(pet) %>
-      </div>
-    <% end %>
+  <div class="container">
+    <div class="cards" id="pets">
+      <% @pets.each do |pet| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
+          <%= link_to pet.name, pet_path(pet) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
       <h3>About</h3>
-      <p>Doggos</p>
+      <p>Playpen is a site for pets to meet other like-minded pets.</p>
     </div>
 
     <div class="w3-third">
@@ -35,13 +32,13 @@
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
           <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Lorem</span><br>
-          <span>Sed mattis nunc</span>
+          <span class="w3-large">Opposites attract</span><br>
+          <span>How to get a dog and cat to be friends</span>
         </li>
         <li class="w3-padding-16">
           <img src="https://www.w3schools.com/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Ipsum</span><br>
-          <span>Praes tinci sed</span>
+          <span class="w3-large">Best twigs for the park</span><br>
+          <span>Love your dog the way they love you</span>
         </li>
       </ul>
     </div>

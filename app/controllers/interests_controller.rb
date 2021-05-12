@@ -42,6 +42,7 @@ class InterestsController < ApplicationController
     #   end
     # end
     @your_confirmed = []
+
     @confirmed.all.each do |interest|
       if @pets.include? interest.pet
         @your_confirmed << interest
