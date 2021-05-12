@@ -1,5 +1,4 @@
 <h1>Your playdates</h1>
-
 <% if @your_confirmed.count > 0%>
   <h3>Your upcoming playdates:</h3>
   <ul>
@@ -23,9 +22,7 @@
       <% end %>
     <% end %>
   </ul>
-
 <% else %>
   <h3>You don't have any upcoming playdates.</h3>
 <% end %>
-
 <%= link_to "Back to home", root_path %>
