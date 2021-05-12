@@ -27,7 +27,7 @@ class InterestsController < ApplicationController
     @interest = Interest.find(params[:id])
     @interest.toggle(:status)
     @interest.save
-    redirect_to interests_path
+    redirect_to playdate_path
   end
   def playdates
     @pets = Pet.where(user: current_user)

@@ -16,7 +16,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 0px;
+  margin: 20px;
   border-radius: 5px;
 }
  .card-product-selected {
@@ -48,12 +48,17 @@
   padding: 16px;
 }
 
+.playdate {
+  height: 100%;
+}
 .pet-images {
+  // width: 50%;
   display: flex;
-  padding-left: 16px;
+  padding: 16px;
 }
 
 .pet-images img {
+  width:120px;
   border-radius: 5px;
 }
 
