@@ -1,14 +1,27 @@
 <h1>Your playdates</h1>
 
-<% if @playdates.count > 0 %>
+<% if @confirmed_by_you.count > 0 %>
   <h3>Your upcoming playdates:</h3>
 
   <ul>
-    <% @playdates.each do |playdate| %>
+    <% @confirmed_by_you.each do |playdate| %>
     <li>Upcoming playdate:<strong><%= playdate.when %></strong></li>
       <ul>
-        <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet.</li>
-        <li>Message: <%= playdate.message %></li>
+        <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet(s).</li>
+        <li>Their message: <%= playdate.message %></li>
+        <li>The venue will be <strong><%= playdate.venue %></strong></li>
+      </ul>
+    <% end %>
+  </ul>
+<% elsif @confirmed_by_other.count > 0 %>
+  <h3>Your upcoming playdates:</h3>
+
+  <ul>
+    <% @confirmed_by_other.each do |playdate| %>
+    <li>Upcoming playdate:<strong><%= playdate.when %></strong></li>
+      <ul>
+        <li>Between your pet(s) and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</li>
+        <li>Your message: <%= playdate.message %></li>
         <li>The venue will be <strong><%= playdate.venue %></strong></li>
       </ul>
     <% end %>
