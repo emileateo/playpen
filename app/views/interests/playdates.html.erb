@@ -1,10 +1,10 @@
 <h1>Your playdates</h1>
 
-<% if @playdates.count > 0 %>
+<% if @your_confirmed.count > 0 %>
   <h3>Your upcoming playdates:</h3>
 
   <ul>
-    <% @playdates.each do |playdate| %>
+    <% @your_confirmed.each do |playdate| %>
     <li>Upcoming playdate:<strong><%= playdate.when %></strong></li>
       <ul>
         <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet.</li>

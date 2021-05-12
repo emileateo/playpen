@@ -37,7 +37,15 @@ class InterestsController < ApplicationController
   end
 
   def playdates
-    @playdates = Interest.where(user: current_user, status: true)
+    @pets = Pet.where(user: current_user)
+    @confirmed = Interest.where(status: true)
+
+    @your_confirmed = []
+    @confirmed.all.each do |interest|
+      if @pets.include? interest.pet
+        @your_confirmed << interest
+      end
+    end
   end
 
   private
