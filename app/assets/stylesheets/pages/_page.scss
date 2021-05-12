@@ -18,28 +18,18 @@
   align-items: center;
 }
 .card-product-selected {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  overflow: hidden;
   height: 360px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
 }
 .card-product img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
-
 .card-product-selected h1 {
   font-size: 36px;
   font-weight: bold;
   margin: 0;
 }
-
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
@@ -60,4 +50,6 @@
   list-style-type: none;
   text-align: left;
 }
-
+.card-product .card-product-infos {
+  padding: 16px;
+}
