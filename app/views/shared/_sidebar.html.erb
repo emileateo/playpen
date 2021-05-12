@@ -1,9 +1,9 @@
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
-  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Home", root_path  %></div>
+  <a href="#" class="closeNav w3-bar-item w3-button">Close Menu</a>
+  <div class="closeNav w3-bar-item w3-button"><%= link_to "Home", root_path  %></div>
   <% if user_signed_in? %>
-  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Add Dog", new_pet_path  %></div>
-  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Interests", interests_path  %></div>
-  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Playdates", playdate_path  %></div>
+  <div class="closeNav w3-bar-item w3-button"><%= link_to "Add Dog", new_pet_path  %></div>
+  <div class="closeNav w3-bar-item w3-button"><%= link_to "Interests", interests_path  %></div>
+  <div class="closeNav w3-bar-item w3-button"><%= link_to "Playdates", playdate_path  %></div>
   <% end %>
 </nav>

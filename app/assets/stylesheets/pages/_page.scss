@@ -1,11 +1,11 @@
-.w3-container {
+
+ .w3-container {
   max-width:1200px;
   margin-top:100px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 .card-product {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -19,19 +19,24 @@
   margin: 20px;
   border-radius: 5px;
 }
-
+.card-product-selected {
+  height: 360px;
+}
 .card-product img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
-
+.card-product-selected h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
-
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
@@ -39,11 +44,16 @@
   margin-bottom: 0;
   margin-top: 8px;
 }
-
-.card-product .card-product-infos {
+.card-product-infos {
   padding: 16px;
 }
 
 .pet-images {
   margin: 0;
+}
+
+.card-product-infos-selected ul {
+  padding: 0px;
+  list-style-type: none;
+  text-align: left;
 }
