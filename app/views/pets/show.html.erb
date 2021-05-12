@@ -8,6 +8,7 @@
         <li><strong>Breed: </strong><%= @pet.breed%></li>
         <li><strong>Temperament:</strong> <%=@pet.temperament %></li>
       </ul>
+      <%= link_to "Edit #{@pet.name}", edit_pet_path(@pet) %>
     </div>
   </div>
   <div class="form-interest" >
