@@ -13,25 +13,26 @@
 <body>
 
 <!-- Sidebar (hidden by default) -->
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:20%;min-width:240px" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
   <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Home", root_path  %></div>
   <% if user_signed_in? %>
-  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Add Dog", new_pet_path  %></div>
-  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Interests", interests_path  %></div>
-  <% end %>
   <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Playdates", playdates_path  %></div>
+  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Requests", interests_path  %></div>
+  <div onclick="w3_close()" class="w3-bar-item w3-button"><%= link_to "Add new pet", new_pet_path  %></div>
+  <% end %>
 </nav>
 
 <!-- Top menu -->
 <div class="w3-top">
   <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
     <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16 btn btn-flat"><%= link_to "Sign up", new_user_registration_path  %></div>
+
     <% if user_signed_in? %>
     <div class="w3-right w3-padding-16 btn btn-ghost"><%= link_to "Logout", destroy_user_session_path, method: :delete  %></div>
     <% else %>
     <div class="w3-right w3-padding-16 btn btn-ghost"><%= link_to "Sign in", new_user_session_path  %></div>
+    <div class="w3-right w3-padding-16 btn btn-flat"><%= link_to "Sign up", new_user_registration_path  %></div>
     <% end %>
     <div class="w3-center w3-padding-16">Play Pen</div>
   </div>
@@ -41,19 +42,21 @@
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
   <!-- First Photo Grid-->
-  <div class="cards" id="pets">
-    <% @pets.each do |pet| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
-        <%= link_to pet.name, pet_path(pet) %>
-      </div>
-    <% end %>
+  <div class="container">
+    <div class="cards" id="pets">
+      <% @pets.each do |pet| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
+          <%= link_to pet.name, pet_path(pet) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
       <h3>About</h3>
-      <p>Doggos</p>
+      <p>Playpen is a site for pets to meet other like-minded pets.</p>
     </div>
 
     <div class="w3-third">
@@ -61,13 +64,13 @@
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
           <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Lorem</span><br>
-          <span>Sed mattis nunc</span>
+          <span class="w3-large">Opposites attract</span><br>
+          <span>How to get a dog and cat to be friends</span>
         </li>
         <li class="w3-padding-16">
           <img src="https://www.w3schools.com/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Ipsum</span><br>
-          <span>Praes tinci sed</span>
+          <span class="w3-large">Best twigs for the park</span><br>
+          <span>Love your dog the way they love you</span>
         </li>
       </ul>
     </div>

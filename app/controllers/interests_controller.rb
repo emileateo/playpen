@@ -40,15 +40,26 @@ class InterestsController < ApplicationController
     @pets = Pet.where(user: current_user)
     @confirmed = Interest.where(status: true)
 
-    @confirmed_by_you = []
-    @confirmed_by_other = []
+    # @confirmed_by_you = []
+    # @confirmed_by_other = []
+    # @confirmed.all.each do |interest|
+    #   if @pets.include? interest.pet
+    #     @confirmed_by_you << interest
+    #   elsif interest.user == current_user
+    #     @confirmed_by_other << interest
+    #   end
+    # end
+    @your_confirmed = []
+
     @confirmed.all.each do |interest|
       if @pets.include? interest.pet
-        @confirmed_by_you << interest
+        @your_confirmed << interest
       elsif interest.user == current_user
-        @confirmed_by_other << interest
+        @your_confirmed << interest
       end
     end
+
+    @your_confirmed.sort_by! { |playdate| playdate.when }
   end
 
   private
