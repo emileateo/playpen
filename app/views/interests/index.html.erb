@@ -2,34 +2,28 @@
 <div class="container">
   <h2>Hello, <%= current_user.email %>!</h2>
 
-  <% if @current_user_interests.count > 0 %>
-    <h3>Your active requests:</h3>
-  <% else %>
-    <h3>You currently have no active requests.</h3>
-  <% end %>
+
 
   <ul>
     <% @current_user_interests.each do |interest| %>
-      <div class="card-product">
-        <%= cl_image_tag interest.user.pets.first.photo.key, width: 400, height: 400, crop: :fill%>
-        <div class="card-product-infos">
-          <h2>Request received at <strong><%= interest.created_at %></strong></h2>
-          <p>From: <strong><%= interest.user.email %></strong> and your pet, <strong><%= interest.pet.name %></strong></p>
-          <p>Message: <%= interest.message %></p>
-          <p>Let's meet at <strong><%= interest.when %></strong></p>
-          <p>The venue will be <strong><%= interest.venue %></strong></p>
-            <p>
-            <% if interest.status %>
-              This playdate is confirmed.
-              <%= link_to 'Cancel playdate', approve_path(interest), method: :patch %>
-            <% else %>
-              This playdate is not confirmed yet.
-              <%= link_to 'Approve playdate', approve_path(interest), method: :patch %>
-            <% end %>
-            </p>
+      <% if !interest.status %>
+        <div class="card-product">
+          <%= cl_image_tag interest.user.pets.first.photo.key, width: 400, height: 400, crop: :fill%>
+          <div class="card-product-infos">
+            <h2>Request received at <strong><%= interest.created_at %></strong></h2>
+            <p>From: <strong><%= interest.user.email %></strong> and your pet, <strong><%= interest.pet.name %></strong></p>
+            <p>Message: <%= interest.message %></p>
+            <p>Let's meet at <strong><%= interest.when %></strong></p>
+            <p>The venue will be <strong><%= interest.venue %></strong></p>
+            <p>This playdate is not confirmed yet. <%= link_to 'Approve playdate', approve_path(interest), method: :patch %></p>
+          </div>
         </div>
-      </div>
+        </ul>
+      <% else %>
+        </ul>
+        <h3>You currently have no active requests.</h3>
+      <% end %>
     <% end %>
-  </ul>
+
 
 </div>
