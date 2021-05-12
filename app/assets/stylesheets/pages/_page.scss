@@ -11,20 +11,20 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   overflow: hidden;
-  height: 160px;
+  height: 360px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 20px;
+  margin: 0px;
   border-radius: 5px;
 }
-.card-product-selected {
+ .card-product-selected {
   height: 360px;
 }
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 360px;
   object-fit: cover;
 }
 .card-product-selected h1 {
