@@ -1,22 +1,24 @@
-<div class="cards">
-<%= cl_image_tag @pet.photo.key  %>
+<div class="container mt-5">
+  <div class="pet-details" style="padding-top: 20px">
+  <%= cl_image_tag @pet.photo.key, width: 400, height: 400, crop: :crop%>
+    <h1><%= @pet.name %></h1>
+      <ul>
+        <li>Description: <%=@pet.description %></li>
+        <li>Breed:<%= @pet.breed%></li>
+        <li>Temperament: <%=@pet.temperament %></li>
+      </ul>
+  </div>
+  <div class="form" >
+    <h3>Interested in this pet?</h3>
+      <%= simple_form_for [@pet, @interest] do |f| %>
+        <%= f.input :message %>
+        <%= f.datetime_field :when %>
+        <%= f.input :venue %>
+        <%= f.submit 'Make it a date!' %>
+   <% end %>
+  </div>
+    <div class="link mt-3">
+      <%= link_to "Back to home", root_path %>
+    </div>
 </div>
-
-<div class="pet-details" >
-  <h1><%= @pet.name %></h1>
-    <ul>
-      <li>Breed:<%= @pet.breed%></li>
-      <li>Temperament: <%=@pet.temperament %></li>
-    </ul>
-</div>
-
-<h3>Interested in this pet?</h3>
-<%= simple_form_for [@pet, @interest] do |f| %>
-  <%= f.input :message %>
-  <%= f.datetime_field :when %>
-  <%= f.input :venue %>
-  <%= f.submit 'Make it a date!' %>
-<% end %>
-
-<%= link_to "Back to home", root_path %>
 
