@@ -1,37 +1,37 @@
 <div class="container">
   <div class="container-w3">
 
-  <h1>Show all interests</h1>
+    <h1>Show all interests</h1>
 
-  <h2>Hello, <%= current_user.email %>!</h2>
+    <h2>Hello, <%= current_user.email %>!</h2>
 
-  <% if @current_user_interests.count > 0 %>
+    <% if @current_user_interests.count > 0 %>
     <h3>Your active requests:</h3>
-  <% else %>
+    <% else %>
     <h3>You currently have no active requests.</h3>
-  <% end %>
+    <% end %>
 
-  <ul>
-    <% @current_user_interests.each do |interest| %>
-    <li>"<%= interest.message %>"</li>
     <ul>
-      <li>Request received at <strong><%= interest.created_at %></strong></li>
-      <li>From: <strong><%= interest.user.email %></strong> and your pet, <strong><%= interest.pet.name %></strong> </li>
-      <li>Let's meet at <strong><%= interest.when %></strong></li>
-      <li>The venue will be <strong><%= interest.venue %></strong></li>
-      <li>...
-        <% if interest.status %>
+      <% @current_user_interests.each do |interest| %>
+      <li>"<%= interest.message %>"</li>
+      <ul>
+        <li>Request received at <strong><%= interest.created_at %></strong></li>
+        <li>From: <strong><%= interest.user.email %></strong> and your pet, <strong><%= interest.pet.name %></strong> </li>
+        <li>Let's meet at <strong><%= interest.when %></strong></li>
+        <li>The venue will be <strong><%= interest.venue %></strong></li>
+        <li>...
+          <% if interest.status %>
           This playdate is confirmed.
           <%= link_to 'Cancel playdate', approve_path(interest), method: :patch %>
-        <% else %>
+          <% else %>
           This playdate is not confirmed yet.
           <%= link_to 'Approve playdate', approve_path(interest), method: :patch %>
-        <% end %>
+          <% end %>
 
-      </li>
+        </li>
 
-    </ul>
-    <% end %>
+      </ul>
+      <% end %>
     </div>
   </ul>
 
