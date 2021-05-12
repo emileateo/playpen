@@ -5,28 +5,35 @@
       <h3>Your upcoming playdates:</h3>
       <ul>
         <% @your_confirmed.each do |playdate| %>
-          <!-- Created by YOU, other -->
-          <% if playdate.user == current_user %>
-            <li>Upcoming playdate: <strong><%= playdate.when %></strong></li>
-              <ul>
-                <li>Between your pet(s) and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</li>
-                <li>Your message: <%= playdate.message %></li>
-                <li>The venue will be <strong><%= playdate.venue %></strong></li>
-              </ul>
-          <% else %>
-          <!-- Created by other user, YOUR PET -->
-            <li>Upcoming playdate: <strong><%= playdate.when %></strong></li>
-              <ul>
-                <li>Between your pet, <%= playdate.pet.name %>, and <strong><%= playdate.user.email %></strong>'s pet(s).</li>
-                <li>Their message: <%= playdate.message %></li>
-                <li>The venue will be <strong><%= playdate.venue %></strong></li>
-              </ul>
-          <% end %>
+          <div class="playdate card-product">
+            <div class="pet-images">
+              <%= cl_image_tag playdate.user.pets.first.photo.key, width: 400, height: 400, crop: :fill%>
+              <%= cl_image_tag playdate.pet.photo.key, width: 400, height: 400, crop: :fill%>
+            </div>
+            <div class="card-product-infos">
+              <h2>Upcoming playdate: <strong><%= playdate.when %></strong></h2>
+
+            <!-- Created by YOU, other -->
+            <% if playdate.user == current_user %>
+                <ul>
+                  <li>Between your pet, <strong><%= current_user.pets.first.name %></strong>, and <strong><%= playdate.pet.name %></strong> (owner: <%= playdate.pet.user.email %>).</li>
+                  <li>Your message: <%= playdate.message %></li>
+                  <li>The venue will be <strong><%= playdate.venue %></strong></li>
+                </ul>
+            <% else %>
+            <!-- Created by other user, YOUR PET -->
+                <ul>
+                  <li>Between your pet, <strong><%= playdate.pet.name %></strong>, and <strong><%= playdate.user.pets.first.name %>/<%= playdate.user.email %></strong>'s pet(s).</li>
+                  <li>Their message: <%= playdate.message %></li>
+                  <li>The venue will be <strong><%= playdate.venue %></strong></li>
+                </ul>
+            <% end %>
+            </div>
+          </div>
         <% end %>
       </ul>
     <% else %>
       <h3>You don't have any upcoming playdates.</h3>
     <% end %>
   </div>
-  <%= link_to "Back to home", root_path %>
 </div>

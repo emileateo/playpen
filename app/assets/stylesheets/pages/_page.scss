@@ -16,6 +16,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .card-product img {
@@ -42,4 +44,6 @@
   padding: 16px;
 }
 
-
+.pet-images {
+  margin: 0;
+}
