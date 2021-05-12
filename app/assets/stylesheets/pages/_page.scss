@@ -16,6 +16,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 20px;
+  border-radius: 5px;
 }
 .card-product-selected {
   height: 360px;
@@ -45,11 +47,13 @@
 .card-product-infos {
   padding: 16px;
 }
+
+.pet-images {
+  margin: 0;
+}
+
 .card-product-infos-selected ul {
   padding: 0px;
   list-style-type: none;
   text-align: left;
-}
-.card-product .card-product-infos {
-  padding: 16px;
 }
