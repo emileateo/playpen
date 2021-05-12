@@ -22,7 +22,7 @@
               <% else %>
               <!-- Created by other user, YOUR PET -->
 
-                <p>Between your pet, <strong><%= playdate.pet.name %></strong>, and <strong><%= playdate.user.pets.first.name %>/<%= playdate.user.email %></strong>'s pet(s).</p>
+                <p>Between your pet, <strong><%= playdate.pet.name %></strong>, and <strong><%= playdate.user.pets.first.name %></strong> (owner: <%= playdate.user.email %>).</p>
                 <p>Their message: <%= playdate.message %></p>
                 <p>Venue: <strong><%= playdate.venue %></strong></p>
 
