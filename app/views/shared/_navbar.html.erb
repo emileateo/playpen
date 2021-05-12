@@ -1,12 +1,13 @@
-<div class="w3-top">
+<div class="container">
   <div class="w3-white w3-xlarge" id="navbar">
     <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16 btn btn-flat"><%= link_to "Sign up", new_user_registration_path  %></div>
     <% if user_signed_in? %>
-    <div class="w3-right w3-padding-16 btn btn-ghost"><%= link_to "Logout", destroy_user_session_path, method: :delete  %></div>
+      <div class="w3-right w3-padding-16 btn btn-ghost"><%= link_to "Logout", destroy_user_session_path, method: :delete  %></div>
     <% else %>
-    <div class="w3-right w3-padding-16 btn btn-ghost"><%= link_to "Sign in", new_user_session_path  %></div>
+      <div class="w3-right w3-padding-16 btn btn-ghost"><%= link_to "Sign in", new_user_session_path  %></div>
+      <div class="w3-right w3-padding-16 btn btn-flat"><%= link_to "Sign up", new_user_registration_path  %></div>
     <% end %>
-    <div class="w3-center w3-padding-16">Play Pen</div>
+    <div class="navbar-home-link w3-center w3-padding-16"><%= link_to 'PLAY PEN', root_path %></div>
+    <div class="w3-center w3-small">Logged in as <%= current_user.email %></div>
   </div>
 </div>

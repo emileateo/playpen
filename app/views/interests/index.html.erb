@@ -1,13 +1,12 @@
+
 <div class="w3-container">
-
-<h2>Hello, <%= current_user.email %>!</h2>
-
+    <h2>Hello, <%= current_user.email %>!</h2>
+  
 <% if @current_user_interests.count > 0 %>
   <h3>Your active requests:</h3>
 <% else %>
   <h3>You currently have no active requests.</h3>
 <% end %>
-
 <ul>
   <% @current_user_interests.each do |interest| %>
   <div class="card-product">
@@ -33,4 +32,5 @@
 </ul>
 
 <%= link_to "Back to home", root_path %>
+
 </div>
