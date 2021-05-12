@@ -31,4 +31,25 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  // Script to open and close sidebar
+  const w3_open = (e) => {
+    e.preventDefault();
+    document.getElementById("mySidebar").style.display = "block";
+  }
+
+  const w3_close = (e) => {
+    e.preventDefault();
+    document.getElementById("mySidebar").style.display = "none";
+  }
+
+  const openNav = document.querySelector('#open-nav');
+  const closeNav = document.querySelector('.close-nav');
+
+  if (openNav) {
+    openNav.addEventListener('click', w3_open);
+  }
+
+  if (closeNav) {
+    closeNav.addEventListener('click', w3_close);
+  }
 });
