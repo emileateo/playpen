@@ -35,6 +35,12 @@ class PetsController < ApplicationController
     end
   end
 
+  def destroy
+    @pet = set_pet
+    @pet.destroy
+    redirect_to root_path
+  end
+
   private
 
   def pet_params
