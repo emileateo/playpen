@@ -17,7 +17,20 @@ class PagesController < ApplicationController
       @pets = Pet.search_by_breed(@breed)
     end
 
-    @breed = Pet.select(:breed).distinct
+    @tagbreed = Pet.select(:breed).distinct
+
+  @max_dist = params["location"]["max distance away"]
+  @coords = session[:coords].transform_values(&:to_f)
+
+  if @max_dist.present?
+    @pets = Pet.near([@coords["lat"], @coords["lng"]], @max_dist.to_f)
+  end
+
+  @markers = @pets.geocoded.map do |pet|
+    {
+      lat: pet.latitude,
+      lng: pet.longitude
+    }
   end
 
   def blogpost1
@@ -25,4 +38,5 @@ class PagesController < ApplicationController
 
   def blogpost2
   end
+end
 end

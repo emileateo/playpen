@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :interests, only: [:index]
 
   patch '/interests/:id/approve', to: 'interests#approve', as: :approve
-
+  get 'current_location', to: 'locations#create'
   get 'playdates', to: 'interests#playdates', as: :playdate
   get 'blogpost1', to: 'pages#blogpost1', as: :blogpost1
   get 'blogpost2', to: 'pages#blogpost2', as: :blogpost2
