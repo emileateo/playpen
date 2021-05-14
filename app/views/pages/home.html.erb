@@ -2,14 +2,20 @@
 <div class="w3-container">
 
   <!-- First Photo Grid-->
+  <div class="search mt-2 mb-3">
+    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :breed, input_html: {value: ""} %>
+      <%= f.submit "Search", class: "btn btn-ghost ml-2" %>
+    <% end %>
+  </div>
 
-    <div class="cards" id="pets">
-      <% @pets.each do |pet| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
-          <%= link_to pet.name, pet_path(pet) %>
-        </div>
-      <% end %>
-    </div>
+  <div class="cards" id="pets">
+    <% @pets.each do |pet| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key) %>)">
+        <%= link_to pet.name, pet_path(pet) %>
+      </div>
+    <% end %>
+  </div>
 
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
@@ -37,6 +43,7 @@
       </ul>
     </div>
 
+
     <div class="w3-third w3-serif">
       <h3>Popular tags</h3>
       <p>
@@ -47,6 +54,13 @@
         <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Seer</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span>
       </p>
     </div>
+
+
+    <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
   </footer>
 
 <!-- End page content -->

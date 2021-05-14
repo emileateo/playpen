@@ -11,7 +11,5 @@ Rails.application.routes.draw do
   patch '/interests/:id/approve', to: 'interests#approve', as: :approve
 
   get 'playdates', to: 'interests#playdates', as: :playdate
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
