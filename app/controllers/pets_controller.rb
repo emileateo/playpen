@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
+
   end
 
   def show
@@ -25,7 +26,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :description, :temperament, :breed, :photo )
+    params.require(:pet).permit(:name, :description, :temperament, :breed, :photo, :address)
   end
 
   def set_pet
