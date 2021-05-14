@@ -10,7 +10,7 @@ class Pet < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_breed,
-                  against: [:breed],
+                  against: [:breed, :address],
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }

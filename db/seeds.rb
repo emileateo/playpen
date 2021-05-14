@@ -30,6 +30,7 @@ puts "Database cleaned"
     description: Faker::Creature::Dog.breed,
     temperament: Faker::Creature::Dog.meme_phrase,
     breed: Faker::Creature::Dog.breed,
+    address: Faker::Address.street_address,
     user: user
   )
   pet_new.photo.attach(io: file, filename: pet_new.name, content_type: 'image/jpg')
