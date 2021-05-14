@@ -2,18 +2,25 @@ class PagesController < ApplicationController
   def home
     @pets = Pet.all
 
-    @markers = @pets.geocoded.map do |pet|
-      {
-        lat: pet.latitude,
-        lng: pet.longitude
-      }
-    end
-
     @search = params["search"]
 
     if @search.present?
       @breed = @search["breed"]
       @pets = Pet.search_by_breed(@breed)
+    end
+
+    @max_dist = params["location"]["max distance away"]
+    @coords = session[:coords].transform_values(&:to_f)
+
+    if @max_dist.present?
+      @pets = Pet.near([@coords["lat"], @coords["lng"]], @max_dist.to_f)
+    end
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude
+      }
     end
   end
 end

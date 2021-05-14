@@ -2,6 +2,22 @@
 <div class="w3-container">
 
   <!-- First Photo Grid-->
+  <script>
+    console.log('about to load');
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+      fetch(`/current_location?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
+    });
+    console.log('went to locations controller')
+  </script>
+
+  <div class="location mt-2 mb-3">
+    <%= simple_form_for :location, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input "max distance away (KM)", input_html: {value: ""} %>
+      <%= f.submit "Search", class: "btn btn-ghost ml-2" %>
+    <% end %>
+  </div>
+
   <div class="search mt-2 mb-3">
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
       <%= f.input :breed, input_html: {value: ""} %>
@@ -56,10 +72,10 @@
     </div>
 
 
-    <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div id="map" style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
   </footer>
 
