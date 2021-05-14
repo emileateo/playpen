@@ -8,6 +8,8 @@
         <li><strong>Breed: </strong><%= @pet.breed%></li>
         <li><strong>Temperament:</strong> <%=@pet.temperament %></li>
       </ul>
+      <%= link_to "Edit #{@pet.name}", edit_pet_path(@pet) %>
+      <%= link_to "Delete #{@pet.name}", pet_path(@pet), method: :delete, data: { confirm: "Are your sure you want to delete #{@pet.name}?"} %>
     </div>
   </div>
   <div class="form-interest" >
