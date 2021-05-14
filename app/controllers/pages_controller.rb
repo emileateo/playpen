@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
     if @search.present?
       @breed = @search["breed"]
-      @pets = Pet.search_by_breed(params["search"]["breed"])
+      @pets = Pet.search_by_breed(@breed)
     end
   end
 end
