@@ -3,7 +3,6 @@
 
   <!-- First Photo Grid-->
 
-  <div class="search mt-2 mb-3" >
   <script>
     console.log('about to load');
     navigator.geolocation.getCurrentPosition((position) => {
@@ -12,6 +11,7 @@
     });
     console.log('went to locations controller')
   </script>
+
 
   <div class="location mt-2 mb-3">
     <%= simple_form_for :location, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
@@ -22,7 +22,13 @@
 
   <div class="search mt-2 mb-3">
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :breed, input_html: {value: ""} %>
+      <%#= f.input :breed, input_html: {value: ""} %>
+      <input list="breeds" name="search">
+        <datalist id="breeds">
+          <% @tagbreed.each do |tagbreed|  %>
+            <option value="<%= tagbreed.breed %>">
+          <% end %>
+      </datalist>
       <%= f.submit "Search", class: "btn btn-ghost ml-2" %>
     <% end %>
   </div>
