@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     @coords = session[:coords].transform_values(&:to_f)
 
     if @max_dist.present?
-      @pets = Pet.near([@coords["lat"], @coords["lng"]], @max_dist["max distance away"].to_f)
+      @pets = Pet.near([@coords["lat"], @coords["lng"]], @max_dist["max distance away (KM)"].to_f)
     end
 
     @markers = @pets.geocoded.map do |pet|
