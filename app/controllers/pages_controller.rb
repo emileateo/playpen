@@ -5,7 +5,8 @@ class PagesController < ApplicationController
     @markers = @pets.geocoded.map do |pet|
       {
         lat: pet.latitude,
-        lng: pet.longitude
+        lng: pet.longitude,
+        image_url: helpers.asset_url('doggymarker.png')
       }
     end
 
@@ -15,5 +16,13 @@ class PagesController < ApplicationController
       @breed = @search["breed"]
       @pets = Pet.search_by_breed(@breed)
     end
+
+    @breed = Pet.select(:breed).distinct
+  end
+
+  def blogpost1
+  end
+
+  def blogpost2
   end
 end
