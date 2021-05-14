@@ -6,7 +6,7 @@ class Pet < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  validates :name, :description, :temperament, :breed, :photo, presence: true
+  validates :name, :description, :temperament, :breed, :photo, :address, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_by_breed,
