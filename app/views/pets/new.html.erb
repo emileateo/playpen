@@ -1,12 +1,13 @@
 <div class="container">
   <h1>Tell us about your pet!</h1>
 
-  <div class="create_pet_form" >
+  <div class="create_pet_form" id="searchForm">
     <%= simple_form_for [@pet ] do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :temperament %>
         <%= f.input :breed %>
+        <%= f.input :address %>
         <%= f.input :photo, as: :file %>
         <%= f.submit 'Join the Pack!' %>
     <% end %>
