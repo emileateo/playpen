@@ -11,11 +11,11 @@ class PagesController < ApplicationController
       @pets = Pet.search_by_breed(@search).near([@coords["lat"], @coords["lng"]], 3000.to_f)
     end
 
-    @max_dist = params["location"]
     if session[:coords].present?
       @coords = session[:coords].transform_values(&:to_f)
     end
 
+    @max_dist = params["location"]
     if @max_dist.present?
       @pets = Pet.near([@coords["lat"], @coords["lng"]], @max_dist["max distance away (KM)"].to_f)
     end
