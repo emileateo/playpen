@@ -21,7 +21,7 @@
      data-markers="<%= [{ lat: @pet.latitude, lng: @pet.longitude }].to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-  <div id="playdate-picker" class="form-interest" data-unavailable="<%= @pet.confirmed_playdates.to_json %>">
+  <div id="playdate-form" class="form-interest">
     <h3>Interested in this pet?</h3>
     <% if user_signed_in? %>
       <%= simple_form_for [@pet, @interest] do |f| %>
@@ -29,7 +29,7 @@
           <%= user.input :pet_id, collection: current_user.pets, label: 'My pet' %>
         <% end %>
         <%= f.input :message %>
-        <%= f.input :when, as: :string, type: :text %>
+        <%= f.input :when, as: :string, type: :text, input_html: { id: 'playdate-picker', data: { unavailable: @pet.confirmed_playdates.to_json} } %>
         <%= f.input :venue %>
         <%= f.submit 'Make it a date!' %>
       <% end %>
