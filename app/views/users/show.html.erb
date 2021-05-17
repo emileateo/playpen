@@ -1,22 +1,20 @@
 <div class="w3-container">
-    <h1>Hello <%= @user.email %></h1>
-    <h2>Here are the Pooches you have registered with us!</h2>
+    <h1>Hey there, <%= @user.email %>!</h1>
+    <h2>Here are the pets you have registered with us:</h2>
       <% @current_user_pet.each do |pet| %>
-    <div class="card-product mt-0">
-      <%= cl_image_tag pet.photo.key, width: 400, height: 400, crop: :fill%>
-      <div class="card-product-infos-selected" >
-        <h1> <%= pet.name %> </h1>
-          <ul>
-            <li><strong>Description:</strong> <%= pet.description %> </li>
-            <li><strong>Breed: </strong><%= pet.breed %> </li>
-            <li><strong>Temperament:</strong><%= pet.temperament %> </li>
-          </ul>
-      </div>
-    </div>
+        <div class="card-product mt-0">
+          <%= cl_image_tag pet.photo.key, width: 400, height: 400, crop: :fill%>
+          <div class="card-product-infos-selected" >
+            <h1> <%= pet.name %> </h1>
+              <ul>
+                <li><strong>Description: </strong><%= pet.description %></li>
+                <li><strong>Breed: </strong><%= pet.breed %></li>
+                <li><strong>Temperament: </strong><%= pet.temperament %></li>
+              </ul>
+          </div>
+        </div>
       <% end %>
-</div>
-<div>
-  <button class="btn btn-primary mx-3" type="submit" >
+  <button class="btn btn-ghost mx-3" type="submit" >
     <%= link_to "Add New Pet!", new_pet_path %>
   </button>
 </div>
