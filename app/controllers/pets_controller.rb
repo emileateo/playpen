@@ -1,4 +1,7 @@
 class PetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+
+
   def index
     @pets = Pet.all
 
@@ -7,6 +10,7 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @interest = Interest.new
+    @interest.user = current_user
   end
 
   def new
