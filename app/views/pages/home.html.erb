@@ -20,8 +20,9 @@
     <% end %>
   </div>
 
-  <div class="search mt-2 mb-3">
+  <div class="search mt-2 mb-3 d-flex">
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <p>Search by breed:&nbsp;</p>
       <%#= f.input :breed, input_html: {value: ""} %>
       <input list="breeds" name="search">
         <datalist id="breeds">
