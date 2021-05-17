@@ -15,7 +15,7 @@
   <div class="search mt-2 mb-3 d-flex">
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
       <%= f.input "max distance away (KM)", input_html: {value: ""} %>
-      <p>Search by breed:&nbsp;</p>
+      &nbsp;Search by breed:&nbsp;
       <%#= f.input :breed, input_html: {value: ""} %>
       <input list="breeds" name="breed">
         <datalist id="breeds">
