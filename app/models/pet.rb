@@ -14,4 +14,10 @@ class Pet < ApplicationRecord
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }
+
+  def confirmed_playdates
+    interests.where(status: true).map do |i|
+      i.when.beginning_of_day
+    end
+  end
 end
