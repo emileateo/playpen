@@ -9,9 +9,11 @@
         <li><strong>Breed: </strong><%= @pet.breed%></li>
         <li><strong>Temperament:</strong> <%=@pet.temperament %></li>
         <li><strong>Address:</strong> <%=@pet.address %></li>
-      </ul>
-      <%= link_to "Edit", edit_pet_path(@pet) %>
-      <%= link_to "Delete", pet_path(@pet), method: :delete, data: { confirm: "Are your sure you want to delete #{@pet.name}?"} %>
+        </ul>
+         <% if current_user == @pet.user %>
+        <%= link_to "Edit", edit_pet_path(@pet) %>
+        <%= link_to "Delete", pet_path(@pet), method: :delete, data: { confirm: "Are your sure you want to delete #{@pet.name}?"} %>
+        <% end %>
     </div>
   </div>
   <div id="map"
