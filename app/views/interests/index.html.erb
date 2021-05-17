@@ -14,7 +14,7 @@
           <%= cl_image_tag interest.user.pets.first.photo.key, width: 400, height: 400, crop: :fill%>
           <div class="card-product-infos">
             <h2>Request received at <strong><%= interest.created_at %></strong></h2>
-            <p>From: <strong><%= interest.user.email %></strong> and your pet, <strong><%= interest.pet.name %></strong></p>
+            <p>From: <strong><%= interest.user_pet.name %></strong> (owner: <%= interest.user.email %>) to your pet, <strong><%= interest.pet.name %></strong></p>
             <p>Message: <%= interest.message %></p>
             <p>Let's meet at <strong><%= interest.when %></strong></p>
             <p>The venue will be <strong><%= interest.venue %></strong></p>

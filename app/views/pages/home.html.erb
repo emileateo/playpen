@@ -66,7 +66,7 @@
       <h3>Popular tags</h3>
       <p>
         <% @tagbreed.each do |breed| %>
-        <a href = "?search=<%= breed.breed %>&commit=Search" span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"><%= breed.breed %></a>
+        <a href = "?search%5Bmax+distance+away+%28KM%29%5D=&breed=<%= breed.breed %>&commit=Search" span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"><%= breed.breed %></a>
         <% end %>
       </p>
     </div>
