@@ -11,6 +11,7 @@ class InterestsController < ApplicationController
         @current_user_interests << interest if !interest.status
       end
     end
+  end
 
   def create
     @interest = Interest.new(interest_params)
@@ -35,6 +36,7 @@ class InterestsController < ApplicationController
     @interest.save
     redirect_to playdate_path
   end
+
   def playdates
     @pets = Pet.where(user: current_user)
     @confirmed = Interest.where(status: true)
