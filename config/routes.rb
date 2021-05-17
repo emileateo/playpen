@@ -15,3 +15,5 @@ Rails.application.routes.draw do
   get 'blogpost2', to: 'pages#blogpost2', as: :blogpost2
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+#updated to match old version of routes
