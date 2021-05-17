@@ -25,6 +25,8 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from './init_mapbox';
+import { initPetpickr } from "./init_petpickr";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -53,10 +55,10 @@ document.addEventListener('turbolinks:load', () => {
   if (closeNav) {
     closeNav.addEventListener('click', w3_close);
   }
+
+  initMapbox();
+  initPetpickr();
 });
 
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-})
 
 
