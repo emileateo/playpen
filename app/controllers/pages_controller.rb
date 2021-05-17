@@ -8,7 +8,6 @@ class PagesController < ApplicationController
 
     if @search.present?
       @coords = session[:coords].transform_values(&:to_f)
-      raise
       @pets = Pet.search_by_breed(@search).near([@coords["lat"], @coords["lng"]], 3000.to_f)
     end
 
