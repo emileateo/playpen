@@ -2,9 +2,34 @@
 <div class="w3-container">
 
   <!-- First Photo Grid-->
-  <div class="search mt-2 mb-3">
+
+  <script>
+    console.log('about to load');
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+      fetch(`/current_location?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
+    });
+    console.log('went to locations controller')
+  </script>
+
+
+  <div class="location mt-2 mb-3">
+    <%= simple_form_for :location, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input "max distance away (KM)", input_html: {value: ""} %>
+      <%= f.submit "Search", class: "btn btn-ghost ml-2" %>
+    <% end %>
+  </div>
+
+  <div class="search mt-2 mb-3 d-flex">
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :breed, input_html: {value: ""} %>
+      <p>Search by breed:&nbsp;</p>
+      <%#= f.input :breed, input_html: {value: ""} %>
+      <input list="breeds" name="search">
+        <datalist id="breeds">
+          <% @tagbreed.each do |tagbreed|  %>
+            <option value="<%= tagbreed.breed %>">
+          <% end %>
+      </datalist>
       <%= f.submit "Search", class: "btn btn-ghost ml-2" %>
     <% end %>
   </div>
@@ -31,13 +56,13 @@
       <h3>Blog posts</h3>
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
-          <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Opposites attract</span><br>
+          <img src="<%= asset_path 'dogandcat.jpg' %>" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large"><%= link_to "Opposites attract", blogpost1_path %></span><br>
           <span>How to get a dog and cat to be friends</span>
         </li>
         <li class="w3-padding-16">
-          <img src="https://www.w3schools.com/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Best twigs for the park</span><br>
+          <img src="<%= asset_path 'goldie3.jpg' %>" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large"><%= link_to "Best twigs for the doggo", blogpost2_path %></span><br>
           <span>Love your dog the way they love you</span>
         </li>
       </ul>
@@ -47,19 +72,17 @@
     <div class="w3-third w3-serif">
       <h3>Popular tags</h3>
       <p>
-        <span class="w3-tag w3-black w3-margin-bottom">Doggo</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chopper</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Jamie</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Breed</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Doggo friends</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Doggo food</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Seer</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Bork</span>
+        <% @tagbreed.each do |breed| %>
+        <a href = "?search=<%= breed.breed %>&commit=Search" span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"><%= breed.breed %></a>
+        <% end %>
       </p>
     </div>
 
 
-    <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div id="map" style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
   </footer>
 
