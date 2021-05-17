@@ -8,7 +8,7 @@ class InterestsController < ApplicationController
     @current_user_interests = []
     @interests.all.each do |interest|
       if @pets.include? interest.pet
-        @current_user_interests << interest
+        @current_user_interests << interest if !interest.status
       end
     end
   end
