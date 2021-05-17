@@ -7,7 +7,7 @@
         <% @your_confirmed.each do |playdate| %>
           <div class="playdate card-product">
             <div class="pet-images">
-              <%= cl_image_tag playdate.user.pets.first.photo.key, width: 400, height: 400, crop: :fill%>
+              <%= cl_image_tag playdate.user_pet.photo.key, width: 400, height: 400, crop: :fill%>
               <%= cl_image_tag playdate.pet.photo.key, width: 400, height: 400, crop: :fill%>
             </div>
             <div class="card-product-infos">

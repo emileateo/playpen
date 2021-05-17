@@ -7,22 +7,29 @@ class InterestsController < ApplicationController
     # HELPPPPP
     @current_user_interests = []
     @interests.all.each do |interest|
-      if @pets.include? interest.pet
-        @current_user_interests << interest
+        if @pets.include? interest.pet
+         @current_user_interests << interest
+        end
       end
     end
-  end
+
   def create
     @interest = Interest.new(interest_params)
+    # raise
     @pet = Pet.find(params[:pet_id])
     @interest.pet = @pet
     # This pet is the pet who receives the request
     @interest.user = current_user
     # This user is the user who sends the request
     @interest.status = false
-    @interest.save
-    redirect_to pet_path(@pet)
+    if params[:user_pet][:pet_id].present?
+      @interest.user_pet = Pet.find(params[:user_pet][:pet_id])
+      redirect_to(root_path, notice: "We\'ve sent a request to #{@interest.pet.name}!") if @interest.save!
+    else
+      render 'pets/show'
+    end
   end
+
   def approve
     @interest = Interest.find(params[:id])
     @interest.toggle(:status)
@@ -52,8 +59,12 @@ class InterestsController < ApplicationController
     end
     @your_confirmed.sort_by! { |playdate| playdate.when }
   end
+
   private
+
   def interest_params
-    params.require(:interest).permit(:message, :when, :venue)
+    params.require(:interest).permit(
+      :message, :when, :venue, user_pet_attributes: [:pet_id]
+    )
   end
 end
